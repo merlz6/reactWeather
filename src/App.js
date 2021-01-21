@@ -15,7 +15,7 @@ export default function App() {
     e.preventDefault();
 
     //local
-    let url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&appid=c9a0604ff76350b32823210bc6388bcb`;
+    // let url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&appid=c9a0604ff76350b32823210bc6388bcb`;
     //heroku
     let url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&appid=${process.env.apikey}`;
 
