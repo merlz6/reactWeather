@@ -15,9 +15,8 @@ export default function App() {
     e.preventDefault();
 
     //local
-    let url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&appid=c9a0604ff76350b32823210bc6388bcb`;
-    // //heroku
-    // let url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&appid=${process.env.apikey}`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&appid=${your api key here}`;
+
 
     console.log(url)
     await fetch(url)
@@ -43,12 +42,14 @@ export default function App() {
 
   return (
     <div className="App">
+      <div style={{'margin-top':'100px'}}>
       <h4>Enter Zip Code Below:</h4>
       <form onSubmit={handleSubmit}>
         <label for="zip">Zip Code : </label>
         <input name="zip" value={zip} onChange={handleChange} />
         <input type="submit" name="" value="Get Weather" />
       </form>
+      </div>
       {show ? (
         <WeatherCard
           data={weather}
