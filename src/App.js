@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import WeatherCard from "./WeatherCard";
 
@@ -10,15 +10,20 @@ export default function App() {
   const [img, setImg] = useState("");
   const [description, setDescription] = useState("");
   const [main, setMain] = useState({});
+  const [coordinates, setCoordinates]= useState({})
+
+
+useEffect(()=> {
+
+})
 
   const handleSubmit = async(e) => {
     e.preventDefault();
 
     //local
-    let url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&appid=c9a0604ff76350b32823210bc6388bcb`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&appid={Your API KEY}`;
 
 
-    console.log(url)
     await fetch(url)
       .then((res) => res.json())
       // .then((data) => console.log(data.weather))
@@ -29,16 +34,22 @@ export default function App() {
         let icon = data.weather[0].icon
         let imgString = `http://openweathermap.org/img/wn/${icon}@2x.png`;
         setImg(imgString);
+        setCoordinates(data.coord)
+        // getOneCall(data.coord)
       })
 
 
     setShow(true);
   };
 
+
+
   const handleChange = (e) => {
     e.preventDefault();
     setZip(e.target.value);
   };
+
+
 
   return (
     <div className="App">
@@ -55,12 +66,15 @@ export default function App() {
           data={weather}
           img={img}
           main={main}
-
           description={description}
         />
       ) : (
         ""
       )}
+
+
+
+
     </div>
   );
 }

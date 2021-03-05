@@ -1,17 +1,17 @@
 .App {
   text-align: center;
-}
+  color:ghostWhite;
 
+}
+body {
+  background-color: #113076;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+
 
 .App-header {
   background-color: #282c34;
@@ -35,4 +35,31 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.weatherCard {
+
+  display: flex;
+  flex-direction:row;
+  border:4px dotted black;
+  width:80%;
+  margin:2em auto;
+  background-color: hsla(0,0%,100%,.1)!important;
+}
+
+.weatherIconHolder {
+  border-radius: 50%;
+  width:25%;
+
+
+}
+.weatherIcon {
+  width:100%;
+  height:100%;
+}
+
+.weatherCardInfoHolder{
+  width:75%;
+  text-align: center;
+  margin-top:2em;
 }
